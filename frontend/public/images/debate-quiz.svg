@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Debate and quiz illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F5EF"/>
+      <stop offset="0.48" stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#E9D596"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#0B1F3A" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="1010" cy="135" r="210" fill="#0B1F3A" opacity="0.08"/>
+  <circle cx="140" cy="620" r="220" fill="#D4AF37" opacity="0.12"/>
+  <g filter="url(#shadow)">
+    <rect x="100" y="90" width="1000" height="540" rx="42" fill="#0B1F3A"/>
+    <rect x="150" y="142" width="900" height="436" rx="34" fill="#FFFDF8" stroke="#D4AF37" stroke-width="4"/>
+    <g transform="translate(210 205)">
+      <rect x="0" y="152" width="256" height="150" rx="28" fill="#F8F5EF" stroke="#D4AF37" stroke-width="4"/>
+      <circle cx="88" cy="70" r="54" fill="#D4AF37"/>
+      <rect x="46" y="132" width="88" height="36" rx="18" fill="#0B1F3A"/>
+      <path d="M208 78c64-44 134-44 198 0v122c-64-44-134-44-198 0Z" fill="#F8F5EF" stroke="#0B1F3A" stroke-width="14" stroke-linejoin="round"/>
+      <path d="M406 78c64-44 134-44 198 0v122c-64-44-134-44-198 0Z" fill="#F8F5EF" stroke="#0B1F3A" stroke-width="14" stroke-linejoin="round"/>
+      <circle cx="720" cy="70" r="54" fill="#D4AF37"/>
+      <rect x="676" y="132" width="88" height="36" rx="18" fill="#0B1F3A"/>
+      <rect x="610" y="152" width="256" height="150" rx="28" fill="#F8F5EF" stroke="#D4AF37" stroke-width="4"/>
+      <path d="M346 305h174" stroke="#D4AF37" stroke-width="16" stroke-linecap="round"/>
+      <circle cx="432" cy="260" r="42" fill="#0B1F3A"/>
+      <text x="432" y="278" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#D4AF37">?</text>
+    </g>
+  </g>
+</svg>

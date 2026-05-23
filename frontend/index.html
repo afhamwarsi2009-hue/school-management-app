@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A premium school management website with portals, admissions, payments, and secure administration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Gurugram Public School</title>
+    <style>
+      .file-fallback {
+        min-height: 100vh;
+        color: #fff;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          linear-gradient(90deg, rgba(10, 18, 31, 0.92), rgba(10, 18, 31, 0.58)),
+          url("/images/school-group.png") center/cover;
+      }
+      .file-fallback nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px clamp(18px, 4vw, 64px);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+      }
+      .file-fallback section { max-width: 780px; padding: 18vh clamp(20px, 6vw, 88px) 80px; }
+      .file-fallback span { color: #c7963f; font-weight: 800; text-transform: uppercase; }
+      .file-fallback h1 { margin: 16px 0; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.95; }
+      .file-fallback p { max-width: 680px; color: rgba(255, 255, 255, 0.82); font-size: 1.12rem; line-height: 1.7; }
+      .file-fallback a {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        margin-top: 24px;
+        padding: 0 20px;
+        border-radius: 8px;
+        background: #c7963f;
+        color: #121826;
+        font-weight: 800;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="file-fallback">
+        <nav>
+          <strong>Gurugram Public School</strong>
+          <small>React app loads at http://localhost:5173</small>
+        </nav>
+        <section>
+          <span>Premium K-12 Digital Campus</span>
+          <h1>Gurugram Public School</h1>
+          <p>
+            If you opened this file directly, start the Vite server to run the full React application with routing,
+            dashboards, forms, and API connectivity.
+          </p>
+          <a href="http://localhost:5173">Open React App</a>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
