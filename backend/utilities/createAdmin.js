@@ -6,7 +6,7 @@ const { closePool } = require('../config/database');
 
 async function createAdmin() {
   const name = process.env.ADMIN_NAME || 'GPS Admin';
-  const email = process.env.ADMIN_EMAIL || 'gurugramhbag@gmail.com';
+  const email = process.env.ADMIN_EMAIL || 'gurugarampublic.co.in@outlook.com';
   const password = process.env.ADMIN_PASSWORD || 'Admin@12345';
   const passwordHash = await bcrypt.hash(password, 12);
 
@@ -35,3 +35,4 @@ createAdmin()
     process.exitCode = 1;
   })
   .finally(closePool);
+

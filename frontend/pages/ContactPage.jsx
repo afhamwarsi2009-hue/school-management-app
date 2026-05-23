@@ -41,9 +41,10 @@ export function ContactPage() {
         <aside className="policy-card">
           <p><MapPin size={18} /> Gurugram Public School Campus</p>
           <p><Phone size={18} /> +91 99553 67376, +91 93043 33219</p>
-          <p><Mail size={18} /> gurugramhbag@gmail.com</p>
+          <p><Mail size={18} /> gurugarampublic.co.in@outlook.com</p>
         </aside>
       </div>
     </section>
   );
 }
+

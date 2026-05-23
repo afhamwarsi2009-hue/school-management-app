@@ -5,7 +5,7 @@ const { execute, sql } = require('./db');
 
 const DEFAULT_ADMIN = {
   name: 'GPS Admin',
-  email: 'gurugramhbag@gmail.com',
+  email: 'gurugarampublic.co.in@outlook.com',
   password: '12345678'
 };
 
@@ -309,3 +309,4 @@ async function initializeDatabase() {
 }
 
 module.exports = { initializeDatabase, testDatabaseConnection };
+

@@ -83,7 +83,7 @@ JWT_SECRET=replace_with_a_long_random_secret
 JWT_EXPIRES_IN=8h
 
 ADMIN_NAME=GPS Admin
-ADMIN_EMAIL=gurugramhbag@gmail.com
+ADMIN_EMAIL=gurugarampublic.co.in@outlook.com
 ADMIN_PASSWORD=Admin@12345
 
 SMTP_HOST=
@@ -91,8 +91,8 @@ SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=
 SMTP_PASS=
-SMTP_FROM=Gurugram Public School <gurugramhbag@gmail.com>
-CONTACT_TO_EMAIL=gurugramhbag@gmail.com
+SMTP_FROM=Gurugram Public School <gurugarampublic.co.in@outlook.com>
+CONTACT_TO_EMAIL=gurugarampublic.co.in@outlook.com
 ```
 
 Create `frontend/.env`:
@@ -129,7 +129,7 @@ Default admin from `.env`:
 
 ```json
 {
-  "email": "gurugramhbag@gmail.com",
+  "email": "gurugarampublic.co.in@outlook.com",
   "password": "Admin@12345",
   "role": "admin"
 }
@@ -217,3 +217,4 @@ Authorization: Bearer YOUR_JWT_TOKEN
 ## WordPress Later
 
 Keep this Express backend as the permanent data/API layer. When moving the public website to WordPress, add the WordPress domain to `CLIENT_ORIGIN`, then call these same API endpoints from a custom plugin, theme JavaScript, or shortcode handlers. Do not move JWT secrets or SQL credentials into WordPress frontend code; keep them in the Node backend `.env`.
+

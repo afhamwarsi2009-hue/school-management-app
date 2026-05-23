@@ -13,7 +13,7 @@ const school = {
   address: 'NH33, Sheetal Kunj, Hearngunj, Hazaribagh, Jharkhand - 825301',
   country: 'India',
   state: 'Jharkhand',
-  email: 'gurugramhbag@gmail.com',
+  email: 'gurugarampublic.co.in@outlook.com',
   phone: '+91 9955367376',
   gateway: 'Razorpay',
   razorpayAccount: 'Afham Warsi'
@@ -355,3 +355,4 @@ export function LegalPage({ policy: propPolicy }) {
     </section>
   );
 }
+

@@ -67,9 +67,10 @@ const env = {
     secure: process.env.SMTP_SECURE === 'true',
     user: process.env.SMTP_USER || '',
     pass: process.env.SMTP_PASS || '',
-    from: process.env.SMTP_FROM || 'Gurugram Public School <gurugramhbag@gmail.com>',
-    contactTo: process.env.CONTACT_TO_EMAIL || 'gurugramhbag@gmail.com'
+    from: process.env.SMTP_FROM || 'Gurugram Public School <gurugarampublic.co.in@outlook.com>',
+    contactTo: process.env.CONTACT_TO_EMAIL || 'gurugarampublic.co.in@outlook.com'
   }
 };
 
 module.exports = { env };
+

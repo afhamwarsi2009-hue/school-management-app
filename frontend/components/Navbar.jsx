@@ -45,7 +45,7 @@ export function Navbar() {
         <div>
           <strong>Admissions Open for Session 2026-27</strong>
           <a href="tel:+919955367376"><Phone size={14} /> +91 99553 67376</a>
-          <a href="mailto:gurugramhbag@gmail.com">gurugramhbag@gmail.com</a>
+          <a href="mailto:gurugarampublic.co.in@outlook.com">gurugarampublic.co.in@outlook.com</a>
         </div>
         <div>
           <Link to="/admissions">Admission Enquiry</Link>
@@ -117,3 +117,4 @@ export function Navbar() {
     </>
   );
 }
+
