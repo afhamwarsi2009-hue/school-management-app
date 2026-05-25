@@ -15,6 +15,8 @@ function parseOrigins(value) {
     .map((origin) => origin.trim())
     .filter(Boolean);
 
+  if (origins.includes('*')) return ['*'];
+
   const expanded = new Set(origins);
   origins.forEach((origin) => {
     try {

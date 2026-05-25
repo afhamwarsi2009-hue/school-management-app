@@ -13,7 +13,13 @@ export async function apiClient(path, options = {}) {
   }
   if (token) headers.set('Authorization', `Bearer ${token}`);
 
-  const response = await fetch(`${API_BASE_URL}${path}`, { ...options, headers });
+  let response;
+  try {
+    response = await fetch(`${API_BASE_URL}${path}`, { ...options, headers });
+  } catch (error) {
+    throw new Error(error?.message || 'Network request failed. Check the backend and CORS settings.');
+  }
+
   if (!response.ok) {
     let message = `Request failed with status ${response.status}`;
     try {
