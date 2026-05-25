@@ -8,13 +8,13 @@ async function startServer() {
     const database = env.db.autoInitialize
       ? await initializeDatabase()
       : await testDatabaseConnection();
-    console.log(`Connected to SQL Server database "${database.databaseName}" on "${database.serverName}"`);
+    console.log(`Connected to MySQL database "${database.databaseName}" on "${database.serverName}"`);
   } catch (error) {
-    console.error('SQL Server connection failed:', error.message);
+    console.error('MySQL connection failed:', error.message);
     if (env.nodeEnv === 'production') {
       process.exit(1);
     }
-    console.error('The API will still start in development, but database routes will fail until SQL Server is reachable.');
+    console.error('The API will still start in development, but database routes will fail until MySQL is reachable.');
   }
 
   const server = app.listen(env.port, () => {

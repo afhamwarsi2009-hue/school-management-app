@@ -9,19 +9,22 @@ async function listAttendance(studentId) {
 }
 
 async function markAttendance(payload) {
-  const result = await execute(
-    `MERGE dbo.attendance AS target
-     USING (SELECT @StudentId AS StudentId, @AttendanceDate AS AttendanceDate) AS source
-     ON target.StudentId = source.StudentId AND target.AttendanceDate = source.AttendanceDate
-     WHEN MATCHED THEN UPDATE SET Status = @Status, Remarks = @Remarks
-     WHEN NOT MATCHED THEN INSERT (StudentId, AttendanceDate, Status, Remarks)
+  await execute(
+    `INSERT INTO dbo.attendance (StudentId, AttendanceDate, Status, Remarks)
      VALUES (@StudentId, @AttendanceDate, @Status, @Remarks)
-     OUTPUT INSERTED.*;`,
+     ON DUPLICATE KEY UPDATE Status = VALUES(Status), Remarks = VALUES(Remarks)`,
     [
       { name: 'StudentId', type: sql.Int, value: payload.StudentId },
       { name: 'AttendanceDate', type: sql.Date, value: payload.AttendanceDate },
       { name: 'Status', type: sql.NVarChar(20), value: payload.Status },
       { name: 'Remarks', type: sql.NVarChar(500), value: payload.Remarks || null }
+    ]
+  );
+  const result = await execute(
+    `SELECT * FROM dbo.attendance WHERE StudentId = @StudentId AND AttendanceDate = @AttendanceDate`,
+    [
+      { name: 'StudentId', type: sql.Int, value: payload.StudentId },
+      { name: 'AttendanceDate', type: sql.Date, value: payload.AttendanceDate }
     ]
   );
   return result.recordset[0];

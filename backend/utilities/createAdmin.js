@@ -11,14 +11,9 @@ async function createAdmin() {
   const passwordHash = await bcrypt.hash(password, 12);
 
   await execute(
-    `MERGE dbo.admins AS target
-     USING (SELECT @email AS Email) AS source
-     ON target.Email = source.Email
-     WHEN MATCHED THEN
-       UPDATE SET Name = @name, PasswordHash = @passwordHash, IsActive = 1, UpdatedAt = SYSUTCDATETIME()
-     WHEN NOT MATCHED THEN
-       INSERT (Name, Email, PasswordHash, IsActive)
-       VALUES (@name, @email, @passwordHash, 1);`,
+    `INSERT INTO admins (Name, Email, PasswordHash, IsActive)
+     VALUES (@name, @email, @passwordHash, 1)
+     ON DUPLICATE KEY UPDATE Name = VALUES(Name), PasswordHash = VALUES(PasswordHash), IsActive = 1, UpdatedAt = UTC_TIMESTAMP()`,
     [
       { name: 'name', type: sql.NVarChar(120), value: name },
       { name: 'email', type: sql.NVarChar(255), value: email },

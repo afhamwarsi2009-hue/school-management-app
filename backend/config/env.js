@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const requiredInProduction = ['DB_USER', 'DB_PASSWORD', 'DB_SERVER', 'DB_DATABASE', 'JWT_SECRET'];
+const requiredInProduction = ['DB_USER', 'DB_PASSWORD', 'DB_HOST', 'DB_DATABASE', 'JWT_SECRET'];
 
 if (process.env.NODE_ENV === 'production') {
   const missing = requiredInProduction.filter((key) => !process.env[key]);
@@ -47,11 +47,12 @@ const env = {
   db: {
     user: process.env.DB_USER || 'SchoolManagement',
     password: process.env.DB_PASSWORD || 'School@$',
-    server: process.env.DB_SERVER || 'AFHAMWARSI',
+    host: process.env.DB_HOST || process.env.DB_SERVER || 'localhost',
+    server: process.env.DB_HOST || process.env.DB_SERVER || 'localhost',
     database: process.env.DB_DATABASE || 'school_management',
-    port: Number(process.env.DB_PORT || 1433),
-    encrypt: process.env.DB_ENCRYPT === 'true',
-    trustServerCertificate: process.env.DB_TRUST_SERVER_CERTIFICATE !== 'false',
+    port: Number(process.env.DB_PORT || 3306),
+    ssl: process.env.DB_SSL === 'true',
+    sslRejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false',
     poolMax: Number(process.env.DB_POOL_MAX || 10),
     poolMin: Number(process.env.DB_POOL_MIN || 0),
     poolIdleTimeout: Number(process.env.DB_POOL_IDLE_TIMEOUT || 30000),
@@ -75,4 +76,3 @@ const env = {
 };
 
 module.exports = { env };
-
