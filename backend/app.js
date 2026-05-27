@@ -11,28 +11,21 @@ const { testDatabaseConnection } = require('./database/initializeDatabase');
 const app = express();
 
 app.use(helmet());
-const corsOptions = env.nodeEnv === 'production'
-  ? {
-    origin: [
-      'https://school-management-app-w814.vercel.app',
-      'https://school-management-app-lac.vercel.app'
-    ],
-    credentials: true
-  }
-  : {
-    origin(origin, callback) {
-      if (!origin) return callback(null, true);
-      if (env.clientOrigin.includes('*') || env.clientOrigin.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error(`Not allowed by CORS: ${origin}`));
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
-  };
+
+const corsOptions = {
+  origin: [
+    'https://school-management-app-w814.vercel.app',
+    'https://school-management-app-w814-bb4wc3uk6-afham-s-projects.vercel.app',
+    'https://school-management-app-lac.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
+};
+
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
+
 app.use(express.json({ limit: '1mb' }));
 app.use(bodyParser.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
@@ -49,23 +42,27 @@ app.get('/api/health', (req, res) => {
 
 app.get('/health/db', async (req, res, next) => {
   try {
-    res.json({ status: 'connected', database: await testDatabaseConnection() });
+    res.json({
+      status: 'connected',
+      database: await testDatabaseConnection()
+    });
   } catch (error) {
     next(error);
   }
 });
 
 app.use('/api', routes);
+
 app.use('/api', (req, res) => {
-  res.status(404).json({ message: `API route not found: ${req.method} ${req.originalUrl}` });
+  res.status(404).json({
+    message: `API route not found: ${req.method} ${req.originalUrl}`
+  });
 });
+
 app.use(errorHandler);
-app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('School Management Backend is Live 🚀');
 });
 
 module.exports = app;
-
-
