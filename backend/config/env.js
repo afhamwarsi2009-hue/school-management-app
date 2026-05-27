@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const required = [
   'DB_HOST',
   'DB_USER',
@@ -31,8 +33,11 @@ const env = {
     sslRejectUnauthorized: false
   },
 
+  jwtSecret: process.env.JWT_SECRET,
+  jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1d',
   jwt: {
-    secret: process.env.JWT_SECRET
+    secret: process.env.JWT_SECRET,
+    expiresIn: process.env.JWT_EXPIRES_IN || '1d'
   }
 };
 

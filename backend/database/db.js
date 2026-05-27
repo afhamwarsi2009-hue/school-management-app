@@ -25,7 +25,7 @@ function convertSql(queryText, params = []) {
     text = `${text.trim().replace(/;$/, '')} LIMIT ${topMatch[1]}`;
   }
 
-  text = text.replace(/@([A-Za-z_][A-Za-z0-9_]*)/g, (match, name) => {
+  text = text.replace(/(?<!@)@([A-Za-z_][A-Za-z0-9_]*)/g, (match, name) => {
     values.push(valuesByName[name]);
     return '?';
   });

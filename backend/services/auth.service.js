@@ -38,12 +38,44 @@ function issueToken(user) {
   };
 }
 
+async function verifyLoginSchema(role) {
+  const table = role === 'student' ? 'students' : 'admins';
+  const requiredColumns = role === 'student'
+    ? ['StudentId', 'AdmissionNumber', 'Email', 'PasswordHash']
+    : ['AdminId', 'Email', 'PasswordHash', 'IsActive'];
+
+  const placeholders = requiredColumns.map((_, index) => `@column${index}`).join(', ');
+  const result = await execute(
+    `SELECT COLUMN_NAME
+     FROM INFORMATION_SCHEMA.COLUMNS
+     WHERE TABLE_SCHEMA = DATABASE()
+       AND TABLE_NAME = @table
+       AND COLUMN_NAME IN (${placeholders})`,
+    [
+      { name: 'table', type: sql.NVarChar(64), value: table },
+      ...requiredColumns.map((column, index) => ({
+        name: `column${index}`,
+        type: sql.NVarChar(64),
+        value: column
+      }))
+    ]
+  );
+
+  const existingColumns = new Set(result.recordset.map((row) => row.COLUMN_NAME));
+  const missingColumns = requiredColumns.filter((column) => !existingColumns.has(column));
+  if (missingColumns.length) {
+    throw httpError(500, `${table} table is missing required login column(s): ${missingColumns.join(', ')}`);
+  }
+}
+
 async function login({ email, admission_number, admissionNumber, password, role }) {
   const normalizedEmail = email ? email.trim().toLowerCase() : '';
   const identifier = (admission_number || admissionNumber || '').trim();
+  await verifyLoginSchema(role);
+
   const result = role === 'student'
     ? await execute(
-      `SELECT TOP 1
+      `SELECT
          StudentId AS UserId,
          StudentId,
          Name,
@@ -54,24 +86,27 @@ async function login({ email, admission_number, admissionNumber, password, role 
          TotalFees,
          PaidFees,
          PasswordHash,
-         CAST('student' AS NVARCHAR(30)) AS Role
-       FROM dbo.students
-       WHERE AdmissionNumber = @identifier OR Email = @email`,
+         'student' AS Role
+       FROM students
+       WHERE (AdmissionNumber = @identifier AND @identifier <> '')
+          OR (LOWER(Email) = @email AND @email <> '')
+       LIMIT 1`,
       [
         { name: 'identifier', type: sql.NVarChar(50), value: identifier },
         { name: 'email', type: sql.NVarChar(255), value: normalizedEmail }
       ]
     )
     : await execute(
-      `SELECT TOP 1
+      `SELECT
          AdminId AS UserId,
          AdminId,
          Name,
          Email,
          PasswordHash,
-         CAST('admin' AS NVARCHAR(30)) AS Role
-       FROM dbo.admins
-       WHERE LOWER(Email) = @email AND IsActive = 1`,
+         'admin' AS Role
+       FROM admins
+       WHERE LOWER(Email) = @email AND IsActive = 1
+       LIMIT 1`,
       [{ name: 'email', type: sql.NVarChar(255), value: normalizedEmail }]
     );
 
