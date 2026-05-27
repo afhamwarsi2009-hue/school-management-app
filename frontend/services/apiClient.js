@@ -1,10 +1,14 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://school-management-app-gjp1.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, '');
 
 export function getApiBaseUrl() {
   return API_BASE_URL;
 }
 
 export async function apiClient(path, options = {}) {
+  if (!API_BASE_URL) {
+    throw new Error('VITE_API_URL is not configured.');
+  }
+
   const token = sessionStorage.getItem('aurora_token');
   const headers = new Headers(options.headers || {});
 
