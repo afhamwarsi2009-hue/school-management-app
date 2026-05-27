@@ -1,5 +1,22 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, '');
 
+function resolveApiUrl(path) {
+  if (!API_BASE_URL) {
+    return path.startsWith('/') ? path : `/${path}`;
+  }
+
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  const baseHasApiPrefix = API_BASE_URL.includes('/api');
+  const pathHasApiPrefix = normalizedPath.startsWith('/api');
+
+  if (baseHasApiPrefix) {
+    const trimmedPath = pathHasApiPrefix ? normalizedPath.replace(/^\/api/, '') : normalizedPath;
+    return `${API_BASE_URL}${trimmedPath}`;
+  }
+
+  return `${API_BASE_URL}${pathHasApiPrefix ? normalizedPath : `/api${normalizedPath}`}`;
+}
+
 export function getApiBaseUrl() {
   return API_BASE_URL;
 }
@@ -9,6 +26,7 @@ export async function apiClient(path, options = {}) {
     throw new Error('VITE_API_URL is not configured.');
   }
 
+  const url = resolveApiUrl(path);
   const token = sessionStorage.getItem('aurora_token');
   const headers = new Headers(options.headers || {});
 
@@ -19,7 +37,7 @@ export async function apiClient(path, options = {}) {
 
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}${path}`, { ...options, headers });
+    response = await fetch(url, { ...options, headers });
   } catch (error) {
     throw new Error(error?.message || 'Network request failed. Check the backend and CORS settings.');
   }

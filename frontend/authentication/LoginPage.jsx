@@ -16,7 +16,7 @@ export function LoginPage() {
     event.preventDefault();
     setStatus('Signing in...');
     try {
-      const result = await apiClient('/auth/login', {
+      const result = await apiClient('/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(role === 'student'
           ? { admission_number: form.admission_number.trim(), password: form.password, role }
