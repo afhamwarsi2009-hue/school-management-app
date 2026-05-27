@@ -15,6 +15,10 @@ if (missing.length) {
 }
 
 const env = {
+  port: process.env.PORT || 5000,
+  nodeEnv: process.env.NODE_ENV || 'development',
+  schoolShortName: 'School Management',
+
   db: {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
