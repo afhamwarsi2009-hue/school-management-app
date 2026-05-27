@@ -13,7 +13,10 @@ const app = express();
 app.use(helmet());
 const corsOptions = env.nodeEnv === 'production'
   ? {
-    origin: 'https://school-management-app-lac.vercel.app',
+    origin: [
+      'https://school-management-app-w814.vercel.app',
+      'https://school-management-app-lac.vercel.app'
+    ],
     credentials: true
   }
   : {
