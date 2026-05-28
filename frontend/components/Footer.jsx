@@ -20,7 +20,7 @@ export function Footer() {
           <h2>Gurugram Public School</h2>
         </div>
         <p>Premium academics, transparent payments, connected portals, and a future-ready learning culture.</p>
-        <p><MapPin size={16} /> Gurugram Public School Campus</p>
+        <p><MapPin size={16} /> NH 33, Sheetal Kunj, Hearngunj, Hazaribagh, Jharkhand - 825301</p>
         <p><Phone size={16} /> +91 99553 67376, +91 93043 33219</p>
         <p><Mail size={16} /> gurugarampublic.co.in@outlook.com</p>
         <div className="footer-socials">
