@@ -20,9 +20,9 @@ export function Footer() {
           <h2>Gurugram Public School</h2>
         </div>
         <p>Premium academics, transparent payments, connected portals, and a future-ready learning culture.</p>
-        <p><MapPin size={16} /> NH 33, Sheetal Kunj, Hearngunj, Hazaribagh, Jharkhand - 825301</p>
+        <p><MapPin size={16} /> NH-33 Ranchi-Patna Road,<br />Beside Kargil Petrol Pump,<br />Hazaribagh, Jharkhand 825301</p>
         <p><Phone size={16} /> +91 99553 67376, +91 93043 33219</p>
-        <p><Mail size={16} /> gurugarampublic.co.in@outlook.com</p>
+        <p><Mail size={16} /> <a href="mailto:info@gurugrambush.in">info@gurugrambush.in</a></p>
         <div className="footer-socials">
           <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer"><Facebook size={18} /></a>
           <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer"><Instagram size={18} /></a>
@@ -56,4 +56,3 @@ export function Footer() {
     </footer>
   );
 }
-
