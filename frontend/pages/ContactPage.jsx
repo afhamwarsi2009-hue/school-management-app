@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+﻿import { Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
 import { SectionHeader } from '../components/SectionHeader.jsx';
 import { apiClient } from '../services/apiClient.js';
@@ -41,10 +41,11 @@ export function ContactPage() {
         <aside className="policy-card">
           <p><MapPin size={18} /> Gurugram Public School Campus</p>
           <p><Phone size={18} /> +91 99553 67376, +91 93043 33219</p>
-          <p><Mail size={18} /> gurugarampublic.co.in@outlook.com</p>
+          <p><Mail size={18} /> info@gurugrambish.in</p>
         </aside>
       </div>
     </section>
   );
 }
+
 

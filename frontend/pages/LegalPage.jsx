@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
 import { Download, FileText, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
 
@@ -13,7 +13,7 @@ const school = {
   address: 'NH33, Sheetal Kunj, Hearngunj, Hazaribagh, Jharkhand - 825301',
   country: 'India',
   state: 'Jharkhand',
-  email: 'gurugarampublic.co.in@outlook.com',
+  email: 'info@gurugrambish.in',
   phone: '+91 9955367376',
   gateway: 'Razorpay',
   razorpayAccount: 'Afham Warsi'
@@ -355,4 +355,5 @@ export function LegalPage({ policy: propPolicy }) {
     </section>
   );
 }
+
 

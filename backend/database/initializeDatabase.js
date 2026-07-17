@@ -1,10 +1,10 @@
-const bcrypt = require('bcryptjs');
+﻿const bcrypt = require('bcryptjs');
 const { createPool, closePool } = require('../config/database');
 const { execute, sql } = require('./db');
 
 const DEFAULT_ADMIN = {
   name: process.env.ADMIN_NAME || 'GPS Admin',
-  email: process.env.ADMIN_EMAIL || 'gurugarampublic.co.in@outlook.com',
+  email: process.env.ADMIN_EMAIL || 'info@gurugrambish.in',
   password: process.env.ADMIN_PASSWORD || '12345678'
 };
 
@@ -195,3 +195,4 @@ async function initializeDatabase() {
 }
 
 module.exports = { initializeDatabase, testDatabaseConnection };
+
