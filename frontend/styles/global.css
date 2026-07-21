@@ -727,13 +727,9 @@ h1, h2, .hero h1, .section-header h2, .vision-mission h2, .transport-band h2, .w
 .brand img,
 .brand-mark img {
   width: 50px;
-  height: 50px;
+  height: auto;
   flex: 0 0 auto;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(212, 175, 55, 0.7);
-  background: #fff;
-  box-shadow: 0 12px 30px rgba(11, 31, 58, 0.14);
+  object-fit: contain;
 }
 
 .brand span {
@@ -964,13 +960,9 @@ h1, h2, .hero h1, .section-header h2, .vision-mission h2, .transport-band h2, .w
 
 .gps-hero-logo {
   width: 86px;
-  height: 86px;
+  height: auto;
   margin-bottom: 22px;
-  border: 2px solid rgba(212, 175, 55, 0.72);
-  border-radius: 50%;
-  object-fit: cover;
-  background: #fff;
-  box-shadow: 0 20px 48px rgba(11, 31, 58, 0.15);
+  object-fit: contain;
 }
 
 .gps-hero h1 {
@@ -1872,11 +1864,8 @@ h1, h2, .hero h1, .section-header h2, .vision-mission h2, .transport-band h2, .w
 
 .footer-logo-line img {
   width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(242, 210, 122, 0.72);
-  background: #fff;
+  height: auto;
+  object-fit: contain;
 }
 
 .footer-brand h2 {
@@ -2114,7 +2103,7 @@ h1, h2, .hero h1, .section-header h2, .vision-mission h2, .transport-band h2, .w
   .brand img,
   .brand-mark img {
     width: 42px;
-    height: 42px;
+    height: auto;
   }
 
   .brand strong {

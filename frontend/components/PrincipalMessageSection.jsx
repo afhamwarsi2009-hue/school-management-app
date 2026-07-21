@@ -11,9 +11,11 @@ const defaultMessage = [
 function SchoolMasthead({ logo, schoolName, tagline }) {
   return (
     <header className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-      <div className="grid size-24 place-items-center overflow-hidden rounded-full border border-[#cda04c]/60 bg-[#fffaf0]/90 p-2 shadow-[0_20px_50px_rgba(11,36,68,0.14)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(11,36,68,0.2)] sm:size-28">
-        <img className="h-full w-full rounded-full object-cover" src={logo} alt={`${schoolName} logo`} />
-      </div>
+      <img
+        className="h-auto w-24 object-contain transition duration-500 hover:-translate-y-1 sm:w-28"
+        src={logo}
+        alt={`${schoolName} logo`}
+      />
       <h1 className="mt-5 font-serif text-3xl font-semibold uppercase leading-tight text-[#0b2444] sm:text-5xl lg:whitespace-nowrap lg:text-6xl">
         {schoolName}
       </h1>
