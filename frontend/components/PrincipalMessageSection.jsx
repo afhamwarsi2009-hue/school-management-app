@@ -54,7 +54,7 @@ export function PrincipalMessageSection({
   schoolName = 'Gurugram Public School',
   tagline = 'Inspire | Empower | Excel',
   title = 'From the Desk of the Principal',
-  principalName = 'Mr. Rajesh Kumar',
+  principalName = 'Mr. Kaushal Kumar Singh (K K Singh)',
   designation = 'Principal',
   message = defaultMessage
 }) {
@@ -102,7 +102,7 @@ export function PrincipalMessageSection({
               </strong>
               <span className="mt-1 block text-lg font-semibold text-[#15355d]">{designation}</span>
               <span className="mt-1 block text-base text-[#15355d]/85">{schoolName}</span>
-              <span className="mt-4 block font-['Playfair_Display'] text-2xl italic text-[#c58e32]">Rajesh Kumar</span>
+              <span className="mt-4 block font-['Playfair_Display'] text-2xl italic text-[#c58e32]">Kaushal Kumar Singh (K K Singh)</span>
             </footer>
           </article>
 
