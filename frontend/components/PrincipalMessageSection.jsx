@@ -1,5 +1,5 @@
 import { Quote } from 'lucide-react';
-import schoolLogo from '../assets/gurugram-school-logo.png';
+import schoolLogo from '../assets/school-logo.png';
 
 const principalPhoto = '/images/principal.png';
 

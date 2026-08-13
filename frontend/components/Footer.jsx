@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react';
-import schoolLogo from '../assets/gurugram-school-logo.png';
+import schoolLogo from '../assets/school-logo.png';
 
 const policies = [
   ['Privacy Policy', '/privacy-policy'],

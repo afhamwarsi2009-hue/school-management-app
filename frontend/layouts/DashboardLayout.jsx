@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
-import schoolLogo from '../assets/gurugram-school-logo.png';
+import schoolLogo from '../assets/school-logo.png';
 
 export function DashboardLayout() {
   const { user } = useAuth();
