@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom';
 import { SectionHeader } from '../components/SectionHeader.jsx';
 import { StatCard } from '../components/StatCard.jsx';
 import { WelcomeSection } from '../components/WelcomeSection.jsx';
-import schoolLogo from '../assets/school-logo.png';
+import { schoolLogo } from '../constants/branding.js';
 
 const directorPhoto = '/images/director.png';
 const schoolGroupImage = '/images/school-group.png';

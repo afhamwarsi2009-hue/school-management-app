@@ -1,5 +1,5 @@
 import { Quote } from 'lucide-react';
-import schoolLogo from '../assets/school-logo.png';
+import { schoolLogo } from '../constants/branding.js';
 
 const principalPhoto = '/images/principal.png';
 

@@ -1,8 +1,11 @@
 const PDFDocument = require('pdfkit');
 const { PassThrough } = require('stream');
+const path = require('path');
 const { execute, sql } = require('../database/db');
 const { env } = require('../config/env');
 const { httpError } = require('./httpError');
+
+const receiptLogoPath = path.join(__dirname, '..', 'assets', 'school-logo.png');
 
 async function createReceiptPdf(paymentId) {
   const result = await execute(
@@ -20,6 +23,8 @@ async function createReceiptPdf(paymentId) {
   const stream = new PassThrough();
   doc.pipe(stream);
 
+  doc.image(receiptLogoPath, doc.page.width / 2 - 44, 38, { width: 88 });
+  doc.moveDown(4.5);
   doc.fontSize(22).text(env.schoolName, { align: 'center' });
   doc.moveDown(0.5);
   doc.fontSize(16).text('Fee Payment Receipt', { align: 'center' });

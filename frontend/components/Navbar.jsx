@@ -1,7 +1,7 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ChevronDown, LogIn, Menu, MessageCircle, Phone, ShieldCheck, X } from 'lucide-react';
-import schoolLogo from '../assets/school-logo.png';
+import { schoolLogo } from '../constants/branding.js';
 
 const navGroups = [
   {
